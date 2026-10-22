@@ -27,7 +27,7 @@ First, checkout this repo and build it. I recommend the OpenMP version if your t
 cores for dramatically improved performance:
 
 ```aiignore
-git clone https://github.com/adriancable/qwen3.c
+git clone https://github.com/mingcc5240/qwen3.c
 cd qwen3.c
 make openmp
 ```
