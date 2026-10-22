@@ -14,6 +14,7 @@
     #include <sys/mman.h>
 #endif
 
+
 // ----------------------------------------------------------------------------
 // Globals
 int GS = 0; // group size global for quantization of the weights

@@ -133,7 +133,7 @@ int mprotect(void *addr, size_t len, int prot)
     uint32_t newProtect = __map_mmap_prot_page(prot);
     uint32_t oldProtect = 0;
     
-    if (VirtualProtect(addr, len, newProtect, &oldProtect))
+    if (VirtualProtect(addr, len, newProtect, (DWORD*)&oldProtect))
         return 0;
     
     errno =  __map_mman_error(GetLastError(), EPERM);
@@ -171,10 +171,11 @@ int munlock(const void *addr, size_t len)
     return -1;
 }
 
+/*
 // Portable clock_gettime function for Windows
 int clock_gettime(int clk_id, struct timespec *tp) {
     uint32_t ticks = GetTickCount();
     tp->tv_sec = ticks / 1000;
     tp->tv_nsec = (ticks % 1000) * 1000000;
     return 0;
-}
+} */

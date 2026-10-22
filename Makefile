@@ -5,7 +5,7 @@ CC = gcc
 # the most basic way of building that is most likely to work on most systems
 .PHONY: run
 run: runq.c
-	$(CC) -O3 -o runq -D_FILE_OFFSET_BITS=64 runq.c -lm
+	$(CC) -O3 -o runq -D_FILE_OFFSET_BITS=64 runq.c win.c -lm
 
 # useful for a debug build, can then e.g. analyze with valgrind, example:
 # $ valgrind --leak-check=full ./run out/model.bin -n 3
@@ -30,7 +30,7 @@ fast: runq.c
 # OMP_NUM_THREADS=4 ./runq out/model.bin
 .PHONY: openmp
 openmp: runq.c
-	$(CC) -Ofast -fopenmp -march=native -D_FILE_OFFSET_BITS=64 runq.c  -lm  -o runq
+	$(CC) -Ofast -fopenmp -march=native -D_FILE_OFFSET_BITS=64 runq.c win.c -lm  -o runq
 
 .PHONY: win64
 win64:
