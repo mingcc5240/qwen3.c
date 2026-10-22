@@ -10,7 +10,7 @@ run: runq.c
 # useful for a debug build, can then e.g. analyze with valgrind, example:
 # $ valgrind --leak-check=full ./run out/model.bin -n 3
 debug: runq.c
-	$(CC) -g -o runq -D_FILE_OFFSET_BITS=64 runq.c -lm
+	$(CC) -g -o runq -D_FILE_OFFSET_BITS=64 runq.c win.c -lm
 
 # https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html
 # https://simonbyrne.github.io/notes/fastmath/
@@ -23,7 +23,7 @@ debug: runq.c
 # In our specific application this is *probably* okay to use
 .PHONY: fast
 fast: runq.c
-	$(CC) -Ofast -o runq -D_FILE_OFFSET_BITS=64 runq.c -lm
+	$(CC) -Ofast -o runq -D_FILE_OFFSET_BITS=64 runq.c win.c -lm
 
 # additionally compiles with OpenMP, allowing multithreaded runs
 # make sure to also enable multiple threads when running, e.g.:
