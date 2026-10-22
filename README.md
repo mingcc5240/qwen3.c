@@ -1,5 +1,5 @@
 ## qwen3.c
-
+*터미널에서 한글이 깨질 경우 chcp 65001 은 윈도우 터미널의 코드페이지를 UTF-8로 전환해 주는 명령어입니다.
 <p align="center">
   <img src="assets/qwen3_c.jpg" width="300" height="300" alt="Cute Llama">
 </p>
